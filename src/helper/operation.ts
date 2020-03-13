@@ -35,9 +35,8 @@ export const sub = (left: number[], right: number[]) => {
   }
   result.reverse();
   const firstGreaterThanZeroIndex = result.findIndex(i => i > 0);
-  if (firstGreaterThanZeroIndex < 0) return [];
-  if (sign) return result.slice(firstGreaterThanZeroIndex);
-  return [0].concat(result.slice(firstGreaterThanZeroIndex));
+  if (firstGreaterThanZeroIndex < 0) return { sign, result: [] };
+  return { sign, result: result.slice(firstGreaterThanZeroIndex) }
 }
 
 export const greater = (left: number[], right: number[]) => {
